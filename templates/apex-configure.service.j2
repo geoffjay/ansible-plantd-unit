@@ -1,0 +1,12 @@
+[Unit]
+Description=Plantd Unit Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory={{ plantd_unit_srcdir }}
+ExecStart={{ plantd_unit_srcdir }}/bin/unit-master-linux-amd64
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

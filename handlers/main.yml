@@ -1,0 +1,7 @@
+---
+- name: restart plantd-configure
+  systemd:
+    name: "{{ plantd_configure_daemon }}"
+    state: "{{ plantd_configure_restarted_state }}"
+    enabled: "{{ plantd_configure_service_enabled }}"
+  tags: [ "plantd-configure" ]

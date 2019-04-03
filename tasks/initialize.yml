@@ -1,0 +1,8 @@
+---
+- name: Install Plantd Unit service file.
+  template:
+    src: apex-unit.service.j2
+    dest: /lib/systemd/system/apex-unit.service
+    mode: 0644
+  notify: restart plantd-unit
+  tags: [ "plantd-unit" ]

@@ -1,0 +1,29 @@
+---
+# Variable configuration.
+- name: Include OS-specific variables (Debian stable)
+  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version.split('.')[0] }}.yml"
+  when: ansible_os_family == 'Debian' and ansible_distribution_version != 'buster/sid'
+
+- name: Include OS-specific variables (Debian testing)
+  include_vars: "{{ ansible_distribution }}-10.yml"
+  when: ansible_os_family == 'Debian' and ansible_distribution_version == 'buster/sid'
+
+- name: Define plantd_unit_version
+  set_fact:
+    plantd_unit_version: "{{ __plantd_unit_version }}"
+  when: plantd_unit_version is not defined
+
+- name: Define plantd_unit_daemon
+  set_fact:
+    plantd_unit_daemon: "{{ __plantd_unit_daemon }}"
+  when: plantd_unit_daemon is not defined
+
+- name: Define __plantd_unit_srcdir
+  set_fact:
+    plantd_unit_srcdir: "{{ __plantd_unit_srcdir }}"
+  when: plantd_unit_srcdir is not defined
+
+- name: Define plantd_unit_packages
+  set_fact:
+    plantd_unit_packages: "{{ __plantd_unit_packages | list }}"
+  when: plantd_unit_packages is not defined

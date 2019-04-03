@@ -1,0 +1,6 @@
+---
+__plantd_unit_version: "0.1.0"
+__plantd_unit_daemon: "plantd-unit"
+__plantd_unit_srcdir: "/usr/src/plantd-unit"
+__plantd_unit_packages:
+  - build-essential

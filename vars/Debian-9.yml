@@ -1,0 +1,6 @@
+---
+__plantd_unit_version: "0.1.0"
+__plantd_unit_daemon: "apex-unit"
+__plantd_unit_srcdir: "/usr/src/go/unit"
+__plantd_unit_packages:
+  - build-essential

@@ -1,0 +1,26 @@
+---
+- name: Get the unit service repository
+  git:
+    repo: https://gitlab.com/crdc/apex/plant
+    dest: "{{ plantd_unit_srcdir }}"
+    force: yes
+  tags: [ "plantd-unit" ]
+
+- name: Build the unit service
+  shell: make
+  args:
+    chdir: "{{ plantd_unit_srcdir }}"
+  tags: [ "plantd-unit" ]
+
+- name: Install the unit service
+  shell: make install
+  args:
+    chdir: "{{ plantd_unit_srcdir }}"
+  tags: [ "plantd-unit" ]
+
+- name: Ensure Plantd unit is started and enabled on boot.
+  systemd:
+    name: "{{ plantd_unit_daemon }}"
+    state: "{{ plantd_unit_service_state }}"
+    enabled: "{{ plantd_unit_service_enabled }}"
+  tags: [ "plantd-unit" ]
