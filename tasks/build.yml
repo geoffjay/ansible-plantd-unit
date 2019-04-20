@@ -18,9 +18,10 @@
     chdir: "{{ plantd_unit_srcdir }}"
   tags: [ "plantd-unit" ]
 
-- name: Ensure Plantd unit is started and enabled on boot.
-  systemd:
-    name: "{{ plantd_unit_daemon }}"
-    state: "{{ plantd_unit_service_state }}"
-    enabled: "{{ plantd_unit_service_enabled }}"
-  tags: [ "plantd-unit" ]
+# TODO: see main.yml
+# - name: Ensure Plantd unit is started and enabled on boot.
+#   systemd:
+#     name: "{{ plantd_unit_daemon }}"
+#     state: "{{ plantd_unit_service_state }}"
+#     enabled: "{{ plantd_unit_service_enabled }}"
+#   tags: [ "plantd-unit" ]
