@@ -11,12 +11,13 @@
 
 # TODO: - include_tasks: configure.yml
 
-- name: Ensure Plantd Unit is started and enabled on boot.
-  systemd:
-    name: "{{ plantd_unit_daemon }}"
-    state: "{{ plantd_unit_service_state }}"
-    enabled: "{{ plantd_unit_service_enabled }}"
-  tags: [ "plantd-unit" ]
+# TODO: enable services using a list variable and with_items
+# - name: Ensure Plantd Unit is started and enabled on boot.
+#   systemd:
+#     name: "{{ plantd_unit_daemon }}"
+#     state: "{{ plantd_unit_service_state }}"
+#     enabled: "{{ plantd_unit_service_enabled }}"
+#   tags: [ "plantd-unit" ]
 
 # Configure Plantd Unit
 #- import_tasks: databases.yml
